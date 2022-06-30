@@ -1,5 +1,5 @@
 var mode = localStorage.getItem("mode");
-
+switchMode();
  const current_mode = document.getElementById("dark_mode");
  current_mode.addEventListener("click", setLocalStorage);
 
