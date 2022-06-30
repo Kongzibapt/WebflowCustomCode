@@ -1,6 +1,18 @@
 const mode = localStorage.getItem("mode");
 
-console.log(mode);
+ const current_mode = document.getElementById("dark_mode");
+ current_mode.addEventListener("click", setLocalStorage);
+
+function setLocalStorage() {
+if (mode === "dark"){
+	localStorage.setItem("mode","light");
+} else if(mode === "light"){
+	localStorage.setItem("mode","dark");
+} else {
+	localStorage.setItem("mode","light");
+}
+}
+
 
 const header = Array.from(document.getElementsByClassName("header"));
 const body = Array.from(document.getElementsByClassName("body"));
@@ -48,8 +60,6 @@ const dm__ray_dot = Array.from(document.getElementsByClassName("dm__ray-dot"));
 
 switch (mode){
 	case "light":
-  console.log(header);
-console.log(navlink);
   	header ? header.forEach(el => el.style.cssText += "background-color:#ffffff;") : null;
 navlink ? navlink.forEach(el => el.style.cssText += "color:#000000;background-color:rgba(230, 230, 230, 0);") : null;
 navlink_button ? navlink_button.forEach(el => el.style.cssText += "color:#ffffff;") : null;
